@@ -4,7 +4,8 @@ from wtforms import FileField
 import os
 import pandas as pd
 from Pattern.Univariant.univarianttest import predictUniModel
-
+from Pattern.Multivariant.multivariant1 import predictModel1
+from Pattern.Multivariant.multivariant2 import predictModel2
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "praveen"
 
@@ -29,7 +30,7 @@ def home():
             result = predictUniModel(df)
             
         else:
-            print("hello")    
+            result = predictModel1(df) + predictModel2(df) 
             #multivariant
         os.remove(filename)
         return render_template('result.html', result=result)
