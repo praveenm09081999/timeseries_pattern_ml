@@ -9,16 +9,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Simple Web App</h1>
-        <form action="/predict" method="post">
-            <label for="feature1">Feature 1:</label>
-            <input type="text" name="feature1" required>
-            
-            <label for="feature2">Feature 2:</label>
-            <input type="text" name="feature2" required>
-
-            <button type="submit">Predict</button>
-        </form>
+        <h1>Pattern Recognition</h1>
+        <h2>For Multivarient and Univarient</h2>
+        <form method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <p>
+            {{ form.csv_file.label }}
+            {{ form.csv_file() }}
+        </p>
+        <p><input type="submit"></p>
+    </form>
     </div>
 </body>
 </html>
